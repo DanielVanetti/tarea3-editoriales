@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Editoriales</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:300,400,600,700">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
+  <link rel="stylesheet" href="css/estructura.css">
+  <link rel="stylesheet" href="css/theme.css">
+  <script src="js/config.js"></script>
+  <script defer src="js/app.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.9/dist/cdn.min.js"></script>
+</head>
+<body>
+  <div class="container" x-data="editoriales" x-cloak>
+    <header class="site-header">
+      <a href="#/" class="brand">Editoriales</a>
+      <span class="tech">Alpine.js</span>
+    </header>
+
+    <main>
+      <template x-if="loading">
+        <p class="status">Cargando…</p>
+      </template>
+
+      <template x-if="!loading && error">
+        <p class="status error" x-text="error"></p>
+      </template>
+
+      <template x-if="!loading && !error && route.name === 'list'">
+        <section>
+          <h1>Editoriales</h1>
+          <div class="card table-wrap">
+            <table class="u-full-width">
+              <thead>
+                <tr><th>Nombre</th><th>País</th><th>Fundada</th><th>Libros</th></tr>
+              </thead>
+              <tbody>
+                <template x-for="publisher in publishers" :key="publisher.id">
+                  <tr>
+                    <td><a :href="'#/editorial/' + publisher.id" x-text="publisher.name"></a></td>
+                    <td x-text="publisher.country"></td>
+                    <td x-text="publisher.founded"></td>
+                    <td x-text="publisher.book_count"></td>
+                  </tr>
+                </template>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </template>
+
+      <template x-if="!loading && !error && route.name === 'detail' && publisher">
+        <section>
+          <a href="#/" class="back">← Todas las editoriales</a>
+          <h1 x-text="publisher.name"></h1>
+          <div class="card">
+            <dl class="details">
+              <dt>País</dt>
+              <dd x-text="publisher.country"></dd>
+              <dt>Fundada</dt>
+              <dd x-text="publisher.founded"></dd>
+            </dl>
+            <h2>Libros publicados</h2>
+            <ul class="book-list">
+              <template x-for="book in publisher.books" :key="book.id">
+                <li>
+                  <span>
+                    <a :href="urls.libros + '#/libro/' + book.id" x-text="book.title"></a>
+                    <span class="meta" x-text="' · ' + book.year"></span>
+                  </span>
+                  <span class="links">
+                    <a :href="urls.libros + '#/libro/' + book.id">Ver libro</a>
+                    <a :href="urls.premios + '#/libro/' + book.id">Ver premios</a>
+                  </span>
+                </li>
+              </template>
+            </ul>
+          </div>
+        </section>
+      </template>
+    </main>
+  </div>
+</body>
+</html>

@@ -1,0 +1,12 @@
+/* Editoriales — dominante verde musgo sobre blanco roto. */
+:root {
+  --bg: #f8f9f5;
+  --surface: #ffffff;
+  --text: #33372f;
+  --heading: #3f4a2a;
+  --muted: #6b7165;
+  --accent: #5b6b3c;
+  --accent-strong: #3f4b28;
+  --on-accent: #ffffff;
+  --border: #dde2d3;
+}
