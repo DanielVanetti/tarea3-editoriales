@@ -4,7 +4,7 @@ window.APP_URLS = {
   "libros": "https://dgp-libros.vercel.app/",
   "autores": "https://dgp-autores.netlify.app/",
   "editoriales": "https://knotfix.github.io/tarea3-editoriales/",
-  "premios": "https://dgp-premios.pages.dev/",
+  "premios": "https://dgp-premios.catalogo-esculturas.workers.dev/",
   "apiLibros": "https://dgp-libros-api.netlify.app/api/books",
   "apiAutores": "https://dgp-autores-api.catalogo-esculturas.workers.dev/api/authors",
   "apiEditoriales": "https://dgp-editoriales-api.vercel.app/api/publishers",
