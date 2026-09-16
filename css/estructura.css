@@ -104,6 +104,15 @@ th, td { border-bottom-color: var(--border); }
 .book-list .meta { color: var(--muted); font-size: 1.3rem; }
 .book-list .links a { margin-left: 1.2rem; font-size: 1.4rem; }
 
+.site-foot {
+  margin-top: 4rem;
+  padding-top: 1.6rem;
+  border-top: 1px solid var(--border);
+  font-size: 1.3rem;
+  color: var(--muted);
+}
+.site-foot strong { color: var(--text); font-weight: 600; }
+
 .badge {
   display: inline-block;
   padding: .1rem .9rem;
